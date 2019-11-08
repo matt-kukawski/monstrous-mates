@@ -1,6 +1,6 @@
 export const CHANGE_SEARCH_FIELD = 'CHANGE_SEARCH_FIELD';
 
-// for dealing with async robots ajax call
-export const REQUEST_ROBOTS_PENDING = 'REQUEST_ROBOTS_PENDING';
-export const REQUEST_ROBOTS_SUCCESS = 'REQUEST_ROBOTS_SUCCESS';
-export const REQUEST_ROBOTS_FAIL = 'REQUEST_ROBOTS_FAIL';
+// for dealing with async monsters ajax call
+export const REQUEST_MONSTERS_PENDING = 'REQUEST_MONSTERS_PENDING';
+export const REQUEST_MONSTERS_SUCCESS = 'REQUEST_MONSTERS_SUCCESS';
+export const REQUEST_MONSTERS_FAIL = 'REQUEST_MONSTERS_FAIL';

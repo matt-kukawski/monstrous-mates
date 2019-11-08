@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
 import Card from 'components/Card';
 
-export default ({robots}) => {
-  const renderCards = robots.map( robot => {
+export default ({monsters}) => {
+  const renderCards = monsters.map( monster => {
     return (
       <Card
-        key={robot.id}
-        name={robot.name}
-        email={robot.email}
-        id={robot.id}
+        key={monster.id}
+        name={monster.name}
+        email={monster.email}
+        id={monster.id}
       />
     );
   })

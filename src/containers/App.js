@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setSearchField, requestRobots } from 'actions';
+import { setSearchField, requestMonsters } from 'actions';
 import CardList from 'components/CardList';
 import SearchBox from 'components/SearchBox';
 import Scroll from 'components/Scroll';
 import ErrorBoundary from 'components/ErrorBoundary';
-// import { robots } from '../robots.js';
+// import { monsters } from '../monsters.js';
 import 'containers/App.css';
 
 // mapStateToProps tells component what state to listen to and send down as props
 const mapStateToProps = state => {
   return {
     // props to be returned from applicable reducer
-    searchField: state.searchRobots.searchField,
-    robots: state.requestRobots.robots,
-    isPending: state.requestRobots.isPending
+    searchField: state.searchMonsters.searchField,
+    monsters: state.requestMonsters.monsters,
+    isPending: state.requestMonsters.isPending
   }
 }
 
@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch) => {
   // return object that contains all actions
   return {
     onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
-    onRequestRobots: () => dispatch(requestRobots())
+    onRequestMonsters: () => dispatch(requestMonsters())
   }
 }
 
@@ -31,18 +31,18 @@ class App extends Component {
   // constructor() {
   //   super()
   //   this.state= {
-  //     robots: [],
+  //     monsters: [],
   //     searchfield: ''
   //   }
   // }
 
   componentDidMount() {
     // console.log(this.props.store.getState());
-    // this.setState( { robots: robots } );
+    // this.setState( { monsters: monsters } );
     // fetch('https://jsonplaceholder.typicode.com/users')
     //   .then(response => response.json())
-    //   .then(users => this.setState( { robots: users }));
-    this.props.onRequestRobots();
+    //   .then(users => this.setState( { monsters: users }));
+    this.props.onRequestMonsters();
   }
 
   // onSearchChange = (event) => {
@@ -52,11 +52,11 @@ class App extends Component {
 
   render() {
     // searchField now comes from props not component state
-    const { robots, searchField, onSearchChange, isPending } = this.props;
-    const filteredRobots = robots.filter(robot => {
-      return robot.name.toLowerCase().includes(searchField.toLowerCase());
+    const { monsters, searchField, onSearchChange, isPending } = this.props;
+    const filteredMonsters = monsters.filter(monster => {
+      return monster.name.toLowerCase().includes(searchField.toLowerCase());
     })
-    // console.log(filteredRobots);
+    // console.log(filteredMonsters);
 
     return isPending ?
       <h1>Loading</h1> :
@@ -66,7 +66,7 @@ class App extends Component {
           <SearchBox searchChange={onSearchChange} />
           <Scroll>
             <ErrorBoundary>
-              <CardList robots={filteredRobots} />
+              <CardList monsters={filteredMonsters} />
             </ErrorBoundary>
           </Scroll>
         </div>
