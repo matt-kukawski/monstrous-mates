@@ -15,10 +15,14 @@ export const setSearchField = (text) => {
   }
 }
 
+
+
 // ordinarily redux expects an object to be returned by an action, reduxThunk middleware allows a function to be returned initially followed by the appropriate action
 export const requestMonsters = () => (dispatch) => {
+  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  const targetUrl = 'https://jsonplaceholder.typicode.com/users';
   dispatch({ type: REQUEST_MONSTERS_PENDING })
-  fetch('https://jsonplaceholder.typicode.com/users')
+  fetch(proxyUrl + targetUrl)
     .then(response => response.json())
     .then(data => dispatch({ type: REQUEST_MONSTERS_SUCCESS, payload: data }))
     .catch(error => dispatch({ type: REQUEST_MONSTERS_FAIL, payload: error }))
