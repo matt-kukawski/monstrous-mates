@@ -22,7 +22,8 @@ export const requestMonsters = () => (dispatch) => {
   dispatch({ type: REQUEST_MONSTERS_PENDING })
   var proxyUrl = 'https://mk-mates.onrender.com/',
       targetUrl = 'https://jsonplaceholder.typicode.com/users';
-  fetch(proxyUrl + targetUrl)
+  // fetch(proxyUrl + targetUrl)
+  fetch(targetUrl)
     .then(response => response.json())
     .then(data => dispatch({ type: REQUEST_MONSTERS_SUCCESS, payload: data }))
     .catch(error => dispatch({ type: REQUEST_MONSTERS_FAIL, payload: error }))
